@@ -40,6 +40,8 @@ class NetworkDataExtraction:
           self.records=records
 
           self.mongo_clients=pymongo.MongoClient(MONGO_DB_URL)
+          print("0adsadsasssssss")
+          
           self.database=self.mongo_clients[self.database]
 
           self.collection=self.database[self.collection]

@@ -1,0 +1,4 @@
+[2025-07-20 02:53:07,295] 13 root - INFO -Initiate the data ingestion
+[2025-07-20 02:53:19,151] 62 root - INFO -Performed the trian test split on dataframe
+[2025-07-20 02:53:19,153] 66 root - INFO -Exporting train and test file path
+[2025-07-20 02:53:20,214] 69 root - INFO -Exported train and test file path
