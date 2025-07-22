@@ -40,3 +40,21 @@ DATA_VALIDATION_VAILD_DIR:str="validated"
 DATA_VALIDATION_INVAILD_DIR:str="invalid"
 DATA_VALIDATION_DRIFT_REPORT_DIR:str="drift_report"
 DATA_VALIDATION_DRIFT_REPORT_FILE_PATH:str="report.yaml"
+
+
+"""
+data transformation realated contansts start with Data_TRNASFORMATION
+"""
+
+DATA_TRANSFORMATION_DIR_NAME:str='data_transformed'
+DATA_TRANSFORMATION_TRANSFORMED_DATA_DIR:str='transformed'
+DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR:str='transformed_odj'
+PREPROCESSING_OBJECT_FILE_NAME:str="preprocessing.pkl"
+
+# KNN IMPUTER REPLACE NAN VALUE
+DATA_TRANSFORMED_IMPUTER_PARAMS:dict={
+    'missing_values':np.nan,
+    'n_neighbors':3,
+    'weights':'uniform'
+}
+
