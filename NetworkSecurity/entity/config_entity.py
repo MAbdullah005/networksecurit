@@ -31,3 +31,19 @@ class DataIngestionConfig:
         self.train_test_split_ratio:float=traning_pipeline.DATA_INGESION_TRAIN_TEST_SPLIT_RATIO
         self.collection_name:str=traning_pipeline.DATA_INGESION_COLLECTION_NAME
         self.database_name:str=traning_pipeline.DATA_INGESION_DATABASE_NAME
+
+
+class DataValidationConfig:
+    def __init__(self,traning_pipeline_config:TrainingPipeline):
+        self.data_validation_dir:str=os.path.join(traning_pipeline_config.artifact_dir,traning_pipeline.DATA_VALIDATION_DIR_NAME)
+        self.vaild_data_dir:str=os.path.join(self.data_validation_dir,traning_pipeline.DATA_VALIDATION_VAILD_DIR)
+        self.invalid_dir:str=os.path.join(self.data_validation_dir,traning_pipeline.DATA_VALIDATION_INVAILD_DIR)
+        self.valid_train_file_path:str=os.path.join(self.vaild_data_dir,traning_pipeline.TRAIN_FILE_NAME)
+        self.valid_test_path:str=os.path.join(self.vaild_data_dir,traning_pipeline.TEST_FILE_NAME)
+        self.invlid_train_path:str=os.path.join(self.invalid_dir,traning_pipeline.TRAIN_FILE_NAME)
+        self.invlid_test_path:str=os.path.join(self.invalid_dir,traning_pipeline.TEST_FILE_NAME)
+        self.drift_report_file_path:str=os.path.join(
+            self.data_validation_dir,
+            traning_pipeline.DATA_VALIDATION_DRIFT_REPORT_DIR,
+            traning_pipeline.DATA_VALIDATION_DRIFT_REPORT_FILE_PATH
+        )
