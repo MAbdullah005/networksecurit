@@ -6,4 +6,8 @@ certifi
 scikit-learn
 dill
 pyaml
+dagshub
+mlflow<3
+fastapi
+uvicorn
 #-e .

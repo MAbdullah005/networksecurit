@@ -15,6 +15,9 @@ FILE_NAME:str="PhisingData.csv"
 TRAIN_FILE_NAME:str="train.csv"
 TEST_FILE_NAME:str="test.csv"
 
+SAVED_MODEL_DIR=os.path.join("saved_models")
+MODEL_FILE_NAME="model.pkl"
+
 SCHEMA_FILE_PATH:str=os.path.join("data_schema","schema.yaml")
 
 
@@ -57,4 +60,15 @@ DATA_TRANSFORMED_IMPUTER_PARAMS:dict={
     'n_neighbors':3,
     'weights':'uniform'
 }
+
+"""
+Model traning related constant 
+"""
+
+MODEL_TRANIER_DIR_NAME:str='model_trainer'
+MODEL_TRANIER_TRAINED_MODEL_DIR:str='tranined_model'
+MODEL_TRANIER_TRAINED_MODEL_NAME:str='model.pkl'
+MODEL_TRANIER_EXPECTED_SCORE:float=0.6
+MODEL_TRANIER_OVER_FITTING_UNDER_FITTING_THRESHOLD:float=0.05
+MODEL_TRANIER_FILE_NAME:str='model_tranied'
 
