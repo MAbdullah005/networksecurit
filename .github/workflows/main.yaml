@@ -50,7 +50,7 @@ jobs:
                 ECR_REGISTRY: ${{steps.login-ecr.outputs.registry}}
                 ECR_REPOSITRY: ${{secrets.ECR_REPOSITRY_NAME}}
                 IMAGE-TAG: latest
-             run: |
+              run: |
                 # build a docker container and
                 # push it ECR so that it can
                 # be deployed to ECS.
@@ -58,6 +58,39 @@ jobs:
                   docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
                   docker push $ECR_REGISTRY/$ECR_REPOSITRY:$IMAGE_TAG
                   echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITRY:$IMAGE_TAG"
+
+
+    Continuous-Deploument:
+        needs: build-and-push-ecr-image
+        runs-on: self-hosted
+        steps:
+            - name: check out
+              uses: actions/checkout@v3
+            - name: Configration AWS credentials
+              uses: aws-actions/configure-aws-credentials@v1
+              with: 
+                aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+                aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+                aws-region: ${{secrets.AWS_REGION}}
+
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login2v1
+
+            - name: Pull latest images
+              run: |
+                 docker pull $${{secret.AWS_ECR_LOGIN_URI}}/${{secret.ECR_REPOSITRY_NAME}}:latest
+
+            #- name: stop and remove container if running
+             # run: |
+             # docker ps -q --filter "name=mltest" | grep -q . && docker stop mltest && docker rm -fv mltest
+
+            - name: Run Docker image to serve the users
+              run: | 
+                docker run -d -p 8080:8080 --ipc="host" --name=networksecurity -e 'AWS_ACCESS_KEY_ID=${{secret.AWS_ACCESS_KEY_ID}}' -e 'AWS_SECRET_ACCESS_KEY=${{secret.AWS_SECRET_ACCESS_KEY}}' -e 'AWS_REGION=${{secret.AWS_REGION}}' ${{secret.AWS_ECR_LOGIN_URI}}/${{secret.ECR_REPOSITRY_NAME}}:latest\
+            - name: clean previous image and container
+              run: |
+                docker system prune -f
 
 
 
