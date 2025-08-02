@@ -1,0 +1,6 @@
+[2025-08-02 14:26:25,764] 1025 httpx - INFO -HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-08-02 14:26:25,778] 107 dagshub - INFO -Accessing as MAbdullah005
+[2025-08-02 14:26:26,775] 1025 httpx - INFO -HTTP Request: GET https://dagshub.com/api/v1/repos/MAbdullah005/networksecurit "HTTP/1.1 200 OK"
+[2025-08-02 14:26:27,668] 1025 httpx - INFO -HTTP Request: GET https://dagshub.com/api/v1/user "HTTP/1.1 200 OK"
+[2025-08-02 14:26:27,679] 107 dagshub - INFO -Initialized MLflow to track repo "MAbdullah005/networksecurit"
+[2025-08-02 14:26:27,685] 107 dagshub - INFO -Repository MAbdullah005/networksecurit initialized!

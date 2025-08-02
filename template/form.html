@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Phishing Detection UI</title>
+</head>
+<template></template>
+
+<body>
+    <h2>Phishing Detection Form</h2>
+    <form action="/predict_ui" method="post">
+        <label>Having IP Address:</label>
+        <select name="having_IP_Address">
+            <option value="-1">No</option>
+            <option value="1">Yes</option>
+        </select><br>
+
+        <label>URL Length:</label>
+        <select name="URL_Length">
+            <option value="-1">Long</option>
+            <option value="0">Medium</option>
+            <option value="1">Short</option>
+        </select><br>
+
+        <label>Shortining Service:</label>
+        <select name="Shortining_Service">
+            <option value="-1">Yes</option>
+            <option value="1">No</option>
+        </select><br>
+
+        <label>Having @ Symbol:</label>
+        <select name="having_At_Symbol">
+            <option value="-1">Yes</option>
+            <option value="1">No</option>
+        </select><br>
+
+        <label>Double Slash Redirecting:</label>
+        <select name="double_slash_redirecting">
+            <option value="-1">Yes</option>
+            <option value="1">No</option>
+        </select><br>
+
+        <label>Prefix Suffix:</label>
+        <select name="Prefix_Suffix">
+            <option value="-1">Yes</option>
+            <option value="1">No</option>
+        </select><br>
+
+        <label>Having Sub Domain:</label>
+        <select name="having_Sub_Domain">
+            <option value="-1">Many</option>
+            <option value="0">Few</option>
+            <option value="1">None</option>
+        </select><br>
+
+        <label>SSL Final State:</label>
+        <select name="SSLfinal_State">
+            <option value="-1">Invalid</option>
+            <option value="0">Suspicious</option>
+            <option value="1">Valid</option>
+        </select><br>
+
+        <label>Domain Registration Length:</label>
+        <select name="Domain_registeration_length">
+            <option value="-1">Short</option>
+            <option value="1">Long</option>
+        </select><br>
+
+        <label>Favicon:</label>
+        <select name="Favicon">
+            <option value="-1">External</option>
+            <option value="1">Internal</option>
+        </select><br>
+
+        <label>Port:</label>
+        <select name="port">
+            <option value="-1">Unusual</option>
+            <option value="1">Normal</option>
+        </select><br>
+
+        <label>HTTPS Token:</label>
+        <select name="HTTPS_token">
+            <option value="-1">Suspicious</option>
+            <option value="1">Normal</option>
+        </select><br>
+
+        <label>Request URL:</label>
+        <select name="Request_URL">
+            <option value="-1">Suspicious</option>
+            <option value="1">Normal</option>
+        </select><br>
+
+        <label>URL of Anchor:</label>
+        <select name="URL_of_Anchor">
+            <option value="-1">Many Suspicious</option>
+            <option value="0">Few</option>
+            <option value="1">None</option>
+        </select><br>
+
+        <label>Links in Tags:</label>
+        <select name="Links_in_tags">
+            <option value="-1">Suspicious</option>
+            <option value="0">Moderate</option>
+            <option value="1">Normal</option>
+        </select><br>
+
+        <label>SFH:</label>
+        <select name="SFH">
+            <option value="-1">Invalid</option>
+            <option value="0">Blank</option>
+            <option value="1">Valid</option>
+        </select><br>
+
+        <label>Submitting to Email:</label>
+        <select name="Submitting_to_email">
+            <option value="-1">Yes</option>
+            <option value="1">No</option>
+        </select><br>
+
+        <label>Abnormal URL:</label>
+        <select name="Abnormal_URL">
+            <option value="-1">Yes</option>
+            <option value="1">No</option>
+        </select><br>
+
+        <label>Redirect:</label>
+        <select name="Redirect">
+            <option value="-1">Many</option>
+            <option value="0">Some</option>
+            <option value="1">None</option>
+        </select><br>
+
+        <label>On Mouseover:</label>
+        <select name="on_mouseover">
+            <option value="-1">Yes</option>
+            <option value="1">No</option>
+        </select><br>
+
+        <label>Right Click:</label>
+        <select name="RightClick">
+            <option value="-1">Disabled</option>
+            <option value="1">Enabled</option>
+        </select><br>
+
+        <label>Popup Window:</label>
+        <select name="popUpWidnow">
+            <option value="-1">Used</option>
+            <option value="1">Not Used</option>
+        </select><br>
+
+        <label>Iframe:</label>
+        <select name="Iframe">
+            <option value="-1">Present</option>
+            <option value="1">Not Present</option>
+        </select><br>
+
+        <label>Age of Domain:</label>
+        <select name="age_of_domain">
+            <option value="-1">Young</option>
+            <option value="1">Old</option>
+        </select><br>
+
+        <label>DNS Record:</label>
+        <select name="DNSRecord">
+            <option value="-1">Missing</option>
+            <option value="1">Present</option>
+        </select><br>
+
+        <label>Web Traffic:</label>
+        <select name="web_traffic">
+            <option value="-1">Low</option>
+            <option value="1">High</option>
+        </select><br>
+
+        <label>Page Rank:</label>
+        <select name="Page_Rank">
+            <option value="-1">Low</option>
+            <option value="1">High</option>
+        </select><br>
+
+        <label>Google Index:</label>
+        <select name="Google_Index">
+            <option value="-1">Not Indexed</option>
+            <option value="1">Indexed</option>
+        </select><br>
+
+        <label>Links Pointing to Page:</label>
+        <select name="Links_pointing_to_page">
+            <option value="-1">Few</option>
+            <option value="0">Moderate</option>
+            <option value="1">Many</option>
+        </select><br>
+
+        <label>Statistical Report:</label>
+        <select name="Statistical_report">
+            <option value="-1">Suspicious</option>
+            <option value="1">Legitimate</option>
+        </select><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+</body>
+
+</html>
