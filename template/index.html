@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Phishing URL Detector</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f7f9fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 24px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .result {
+            margin-top: 24px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .safe {
+            color: green;
+        }
+
+        .phishing {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>🔐 Phishing URL Detector</h2>
+        <form action="/predict" method="post">
+            <label for="url">Enter URL to Analyze:</label><br><br>
+            <input type="text" id="url" name="url" placeholder="https://example.com"><br><br>
+            <input type="submit" value="Check URL">
+        </form>
+
+        {% if result %}
+        <div class="result {{ 'safe' if 'Legitimate' in result else 'phishing' }}">
+            Result: {{ result }}
+        </div>
+        {% endif %}
+    </div>
+</body>
+
+</html>

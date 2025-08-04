@@ -11,4 +11,5 @@ mlflow<3
 fastapi
 python-multipart
 uvicorn
+whois
 #-e .

@@ -1,8 +1,10 @@
-FROM  python:3.13-slim
+FROM python:3.13-slim
+
+# Then you likely don't need build-essential at all
+# Continue normally
 WORKDIR /app
-COPY . /app
-
-RUN apt update -y && apt install awscli -y
-
-RUN apt-get update && pip install -r requirements.txt
-CMD [ "python","app.py" ]
+COPY requirements.txt .
+RUN pip install --upgrade pip && pip install -r requirements.txt
+COPY . .
+EXPOSE 8000
+CMD ["uvicorn", "app:app", "--host", "0.0.0.0", "--port", "8000"]
